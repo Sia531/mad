@@ -1,0 +1,95 @@
+[project]
+name = "madiff"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "black>=23.1.0",
+    "cython>=0.29.28,<0.30.0",
+    "d4rl",
+    "ddpg-agent",
+    "diffusers>=0.24.0",
+    "dm-control>=1.0.8",
+    "einops>=0.8.1",
+    "enum34>=1.1.10",
+    "gitdb>=4.0.5",
+    "gitpython>=3.1.9",
+    "glfw>=1.12.0",
+    "gtimer>=1.0.0b5",
+    "gym>=0.18",
+    "gymnasium>=0.27.1",
+    "isort>=5.12.0",
+    "jaynes>=0.8.11",
+    "joblib>=0.16.0",
+    "madiff",
+    "mamujoco",
+    "matplotlib>=3.6.3",
+    "mjrl",
+    "ml-logger>=0.8.69",
+    "mujoco>=2.3.0",
+    "mujoco-py>=2.1,<2.2",
+    "multiagent",
+    "numpy>=1.23.0,<2.0",
+    "opencv-python>=4.11.0.86",
+    "opt-einsum>=3.1.0",
+    "packaging>=23.0",
+    "pandas>=1.3.5",
+    "params-proto>=2.9.6",
+    "path>=15.0.0",
+    "pygame>=2.6.1",
+    "pyglet>=1.5.0",
+    "pyopengl>=3.1.5",
+    "pyparsing>=2.2.2",
+    "pyrsistent>=0.16.0",
+    "pysc2>=3.0.0",
+    "pytest>=3.8.2",
+    "python-dateutil>=2.7.3",
+    "python-utils>=2.4.0",
+    # "pywin32>=310",
+    "pyyaml>=6.0",
+    "scikit-image>=0.19.3",
+    "scikit-video>=1.1.11",
+    "scipy>=1.10.1",
+    "seaborn>=0.13.2",
+    "subprocess32>=3.5.4",
+    "tensorboard>=2.0.2",
+    "tensorboardx>=2.0",
+    "tensorflow-estimator>=2.0.0",
+    "tqdm>=4.67.1",
+    "typed-argument-parser>=1.7.2",
+]
+
+[tool.uv.sources]
+mjrl = { git = "https://github.com/aravindr93/mjrl", rev = "master" }
+d4rl = { git = "https://github.com/Farama-Foundation/d4rl", rev = "e840e80ec4ed51bbb0e557e466198b5d1ae29a15" }
+multiagent = { path = "third_party/multiagent-particle-envs" }
+mamujoco = { path = "third_party/multiagent_mujoco" }
+ddpg-agent = { path = "third_party/ddpg-agent" }
+madiff = { workspace = true }
+torch = [
+    { index = "pytorch-cpu", extra = "cpu" },
+    { index = "pytorch-cu126", extra = "cu126" },
+]
+
+[project.optional-dependencies]
+cpu = ["torch"]
+cu126 = ["torch"]
+
+[tool.uv]
+conflicts = [[{ extra = "cpu" }, { extra = "cu126" }]]
+
+
+[[tool.uv.index]]
+name = "tuna-mirror"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://mirror.nju.edu.cn/pytorch/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://mirror.nju.edu.cn/pytorch/whl/cu126/"
+explicit = true
