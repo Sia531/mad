@@ -16,7 +16,7 @@ sudo apt-get install libosmesa6-dev libgl1-mesa-glx libglfw3
 sudo apt install patchelf
 
 # venv setup
-cd new_diff
+cd mad
 export PYTHONPATH="${PYTHONPATH}:$(pwd)"
 uv venv -p 3.10
 uv sync --extra cu126
@@ -25,13 +25,13 @@ chmod +x ./.venv/bin/activate
 source ./.venv/bin/activate
 
 # data preparation
-mkdir -p diffuser/dataset/data/mpe
-cd diffuser/dataset/data/mpe
-wget "https://files.osf.io/v1/resources/jxawh/providers/osfstorage/64d11746c7ab293e72d4e0ee/\?view_only\=dd3264a695af4c03bffde0350b8e8c4a\&zip\=" -O mpe_data.zip
-unzip mpe_data.zip
-7z -x simple_tag.zip
-rm mpe_data.zip
-cd ~/new_diff
+mkdir -p diffuser/datasets/data/mpe
+cd diffuser/datasets/data/mpe
+# wget "https://files.osf.io/v1/resources/jxawh/providers/osfstorage/64d11746c7ab293e72d4e0ee/\?view_only\=dd3264a695af4c03bffde0350b8e8c4a\&zip\=" -O mpe_data.zip
+# unzip mpe_data.zip
+# 7z -x simple_tag.zip
+# rm mpe_data.zip
+# cd ~/mad
 
-# run experiments
-python run_experiment.py -e exp_specs/mpe/tag/mad_mpe_tag_attn_exp_td3bc.yaml
+# # run experiments
+# python run_experiment.py -e exp_specs/mpe/tag/mad_mpe_tag_attn_exp_td3bc.yaml

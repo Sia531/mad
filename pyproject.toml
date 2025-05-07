@@ -81,10 +81,6 @@ conflicts = [[{ extra = "cpu" }, { extra = "cu126" }]]
 
 
 [[tool.uv.index]]
-name = "tuna-mirror"
-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
-
-[[tool.uv.index]]
 name = "pytorch-cpu"
 url = "https://mirror.nju.edu.cn/pytorch/whl/cpu"
 explicit = true
